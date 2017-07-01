@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@using (Html.BeginForm("GetPlayerNames", "Player", FormMethod.Post))
+{
+    <div class="row mt-30">
+        <div class="col-md-3 text-center col-lg-offset-3">
+            <h2>
+                <span class="label label-info mt-30 ">First Player Name:</span>
+            </h2>
+            <input class="form-control mt-30" id="firstPlayerName" type="text" name="firstPlayer" required placeholder="Enter here"
+                   oninvalid="this.setCustomValidity('Please enter first player name !')"
+                   oninput="setCustomValidity('')">
+        </div>
+        <div class="col-md-3 text-center">
+            <h2>
+                <span class="label label-info mt-30 ">Second Player Name:</span>
+            </h2>
+            <input class="form-control mt-30" id="secondPlayerName" type="text" name="secondPlayer" required placeholder="Enter here"
+                   oninvalid="this.setCustomValidity('Please enter second player name !')"
+                   oninput="setCustomValidity('')">
+        </div>
+    </div>
+    <div class="row text-center mt-30">
+        <button type="submit" class="btn btn-success btn-lg" value="start">Start Game</button>
+    </div>
+}

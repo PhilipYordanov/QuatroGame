@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Quatro.Models.Player>
+@{
+    ViewBag.Title = "NewGame";
+}
+@{ 
+    var fp = Model.First().Name;
+    var sp = Model.Last().Name;
+}
+<div class="row mt-10">
+    @{ var firsePlayerScore = Model.First().Score;
+        var secondPlayerScore = Model.Last().Score;}
+    <div class="col-md-12 lead text-center">
+        <p class="lead text-primary">@fp  - @sp  |  @firsePlayerScore : @secondPlayerScore</p>
+    </div>
+</div>
+
+<div class="row">
+    <div id="firstPick" style="display:">
+        <h4 class="lead" id="firstPlayer">
+            <span class="lead text-info">@Html.DisplayFor(a => Model.First().Name)</span> pick a figure and drop it in the <span class="lead text-info">BLUE</span> square below: 
+        </h4>
+    </div>
+    <div id="secondPick" style="display:none">
+        <h4 class="lead" id="secondPlayer">
+            <span class="lead text-info">@Html.DisplayFor(a => Model.Last().Name)</span> pick a figure and drop it in the <span class="lead text-info">BLUE</span> square below: 
+        </h4>
+    </div>
+    <div class="row col-md-4">
+        <p>Figures are below:</p>
+        <table class="mt-30" id="table">
+            @{
+                var imageCounter = 1;
+
+                for (int zero = 0; zero < 2; zero++)
+                {
+                    for (int one = 0; one < 2; one++)
+                    {
+                        <tr class="row mt-30">
+                            @for (int two = 0; two < 2; two++)
+                            {
+                                for (int three = 0; three < 2; three++)
+                                {
+                                    <td class="mt-30" style="color:peru">
+                                        <img id="@string.Format($"{zero}" + $"{one}" + $"{two}" + $"{three}")" src="~/FigurerIcons/@string.Format($"{imageCounter++}.png")"
+                                             draggable="true" ondragstart="drag(event)"
+                                             width="75" height="75" alt="figure" style="border-radius:25px">
+                                    </td>
+                                }
+                            }
+                        </tr>
+                    }
+                }
+            }
+        </table>
+    </div>
+    @{Html.RenderPartial("_DrawBoard");}
+</div>
+
+<div class="row">
+    <div id="first" style="display:none">
+        <h4 class="lead" id="firstPlayer">
+            <span class="lead text-info">@Html.DisplayFor(a => Model.First().Name)</span> pick the figure from the <span class="lead text-info">BLUE</span> square below and drop it on the board:
+        </h4>
+    </div>
+    <div id="second" style="display:">
+        <h4 class="lead" id="secondPlayer">
+            <span class="lead text-info">@Html.DisplayFor(a => Model.Last().Name)</span>  pick the figure from the <span class="lead text-info">BLUE</span> square below and drop it on the board: 
+        </h4>
+    </div>
+    <div class="col-md-4 text-center" style="color:cornflowerblue">
+        <div class="boxStyle" id="emptyBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    </div>
+</div>
+<div class="row" style="display:none">
+    @using (Html.BeginForm("PlayAgain", "Quatro", FormMethod.Post))
+    {
+        <button id="gameEnd" type="submit" value="start">Start Game</button>
+    }
+</div>
+@*// TODO : set IsWinner to ture
+    <script>
+
+        @Json.Encode(Model.First().IsWinner);
+        @Json.Encode(Model.Last().IsWinner);
+
+        ||
+
+        isWinner: '@(Model
+                .First()
+                .IsWinner)' == '@true'
+        isWinner: '@(Model
+                .Last()
+                .IsWinner)' =='@true'
+    </script>*@
+
+
+
+
+

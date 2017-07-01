@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "_DrawBoard";
+}
+
+<div class="row col-md-6">
+    <table class="mt-30" id="board">
+        @{  var cellId = 0;
+            for (int row = 0; row < 4; row++)
+            {
+                <tr class="row mt-30">
+                    @for (int col = 0; col < 4; col++)
+                    {
+                        <td class="mt-30" style="color:peru">
+                            <div class="boardDivStyle" id="@string.Format($"{cellId++}")" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        </td>
+                    }
+                </tr>
+            }
+        }
+    </table>
+</div>
+

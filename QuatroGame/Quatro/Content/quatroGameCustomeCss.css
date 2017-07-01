@@ -1,0 +1,24 @@
+﻿.mt-30 {
+    margin-top: 30px;
+}
+
+.boardDivStyle {
+    width: 95px;
+    height: 95px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+    background-color: peru;
+    border-radius: 55px;
+}
+
+.boxStyle {
+    width: 95px;
+    height: 95px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+    background-color: cornflowerblue;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
