@@ -26,7 +26,7 @@
             currentPlayers.Add(playerOne);
             currentPlayers.Add(playerTwo);
 
-            StreamWriter sw = new StreamWriter(/*filePath*/ @"C:\Users\User\Desktop\QuatroGame\Quatro\Score.txt", true);
+            StreamWriter sw = new StreamWriter(/*filePath*/ @"D:\QuatroGame\QuatroGame\Score.txt", true);
             sw.WriteLine($"{playerOne.Name}  - {playerTwo.Name} : {playerOne.Score} - {playerTwo.Score}");
             
             sw.Flush();

@@ -14,7 +14,7 @@
             string currentLine = string.Empty;
             string firstPlayerName = string.Empty;
             string secondPlayerName = string.Empty;
-            StreamReader readFile = new StreamReader(@"C:\Users\User\Desktop\QuatroGame\Quatro\Score.txt");
+            StreamReader readFile = new StreamReader(@"D:\QuatroGame\QuatroGame\Score.txt");
             while (readFile.EndOfStream == false)
             {
                 currentLine = readFile.ReadLine();
